@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diário de Bordo</title>
     <link rel="stylesheet" href="styles.css">
-    
+
 </head>
 <body>
     <main>
         <h1>Diário de Bordo</h1>
 
+        <!-- Formulário para adicionar uma nova entrada -->
         <form>
             <div>
-                <input type="text" placeholder="Título">
+                <input type="text" id="titulo" placeholder="Título">
             </div>
 
             <div>
-                <textarea placeholder="Descrição"></textarea>
+                <textarea id="descricao" placeholder="Descrição"></textarea>
             </div>
 
             <div class="data">
@@ -31,9 +32,10 @@
 
         </form>
 
+        <!-- Lista onde as entradas serão exibidas -->
         <ul>
-         
         </ul>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>
