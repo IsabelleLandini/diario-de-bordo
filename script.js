@@ -106,6 +106,7 @@ window.addEventListener("load", () => {
             localStorage.setItem("entradas", JSON.stringify(entradasSalvas));
 
             lista.removeChild(elementoLista);
+
         });
 
         lista.append(elementoLista);
