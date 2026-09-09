@@ -26,7 +26,9 @@ function adicionar (event) {
 
     // Adiciona a entrada ao array e obtém seu índice
     entradas.push(entrada);
+    localStorage.setItem("entradas", JSON.stringify(entradas));
     console.log(entradas);
+
     const indice = entradas.length - 1
 
     const elementoLista = document.createElement("li");
@@ -49,8 +51,41 @@ function adicionar (event) {
 
         lista.removeChild(elementoLista);
     });
+
+    formulario.reset();
 }
 
 
 
 formulario.addEventListener("submit", adicionar);
+
+window.addEventListener("load", function() {
+    
+    const entradasSalvas = JSON.parse(
+        localStorage.getItem("entradas")
+    );
+
+    entradas.push(...entradasSalvas);
+    
+    entradasSalvas.forEach(function(entrada) {
+        const botaoRemover = document.createElement("button");
+        botaoRemover.textContent = "Remover";
+
+        const elementoLista = document.createElement("li");
+        
+        elementoLista.textContent = entrada.titulo + "\n" + entrada.descricao + "\n" + entrada.data;
+        elementoLista.append(botaoRemover);
+
+        botaoRemover.addEventListener("click", function() {
+            const indice = entradasSalvas.indexOf(entrada);
+            entradasSalvas.splice(indice, 1);
+
+            localStorage.setItem("entradas", JSON.stringify(entradasSalvas));
+
+            lista.removeChild(elementoLista);
+        });
+
+        lista.append(elementoLista);
+    });
+
+});
