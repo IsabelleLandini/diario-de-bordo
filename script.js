@@ -32,7 +32,20 @@ function adicionar (event) {
     const indice = entradas.length - 1
 
     const elementoLista = document.createElement("li");
-    elementoLista.textContent = titulo + "\n" + descricao + "\n" + data;
+
+    const tituloElemento =document.createElement("h3");
+    tituloElemento.textContent = titulo;
+
+    const descricaoElemento = document.createElement("p");
+    descricaoElemento.textContent = descricao;
+
+    const dataElemento = document.createElement("small");
+    dataElemento.textContent = data;
+    
+    elementoLista.append(tituloElemento);
+    elementoLista.append(descricaoElemento);
+    elementoLista.append(dataElemento);
+
     elementoLista.setAttribute("data-indice", indice);
 
     lista.append(elementoLista);
@@ -71,9 +84,20 @@ window.addEventListener("load", function() {
         const botaoRemover = document.createElement("button");
         botaoRemover.textContent = "Remover";
 
-        const elementoLista = document.createElement("li");
+        const elementoLista = document.createElement("li")
         
-        elementoLista.textContent = entrada.titulo + "\n" + entrada.descricao + "\n" + entrada.data;
+        const tituloElemento = document.createElement("h3");
+        tituloElemento.textContent = entrada.titulo;
+
+        const descricaoElemento = document.createElement("p");
+        descricaoElemento.textContent = entrada.descricao;
+
+        const dataElemento = document.createElement("small");
+        dataElemento.textContent = entrada.data;
+
+        elementoLista.append(tituloElemento);
+        elementoLista.append(descricaoElemento);
+        elementoLista.append(dataElemento);
         elementoLista.append(botaoRemover);
 
         botaoRemover.addEventListener("click", function() {
