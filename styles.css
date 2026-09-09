@@ -117,6 +117,24 @@ li button:hover {
     transform: translateY(-2px);
 }
 
+#installbutton {
+    display: block;
+    margin: 0 0 20px auto;
+    padding: 10px 20px;
+    background: #6258b5;
+    color: #ffffff;
+    border: 1px solid #968cee;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+#installbutton:hover {
+    background: #968cee;
+    transform: translateY(-2px);
+}
+
 @media (max-width: 600px) {
     .data {
         width: 100%;

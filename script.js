@@ -55,7 +55,7 @@ function adicionar (event) {
 
     elementoLista.append(botaoRemover);
 
-    botaoRemover.addEventListener("click", function() {
+    botaoRemover.addEventListener("click", () => {
         const indice = entradas.indexOf(entrada);
         console.log("indice",indice);
 
@@ -68,19 +68,18 @@ function adicionar (event) {
     formulario.reset();
 }
 
-
-
 formulario.addEventListener("submit", adicionar);
 
-window.addEventListener("load", function() {
+// Recupera as entradas salvas no localStorage ao carregar a página
+window.addEventListener("load", () => {
     
     const entradasSalvas = JSON.parse(
-        localStorage.getItem("entradas")
+        localStorage.getItem("entradas") || "[]"
     );
 
     entradas.push(...entradasSalvas);
     
-    entradasSalvas.forEach(function(entrada) {
+    entradasSalvas.forEach((entrada) => {
         const botaoRemover = document.createElement("button");
         botaoRemover.textContent = "Remover";
 
@@ -100,7 +99,7 @@ window.addEventListener("load", function() {
         elementoLista.append(dataElemento);
         elementoLista.append(botaoRemover);
 
-        botaoRemover.addEventListener("click", function() {
+        botaoRemover.addEventListener("click", () => {
             const indice = entradasSalvas.indexOf(entrada);
             entradasSalvas.splice(indice, 1);
 
@@ -112,4 +111,20 @@ window.addEventListener("load", function() {
         lista.append(elementoLista);
     });
 
+});
+
+// Registra o Service Worker
+navigator.serviceWorker.register("service-worker.js");
+
+// Detecta quando a PWA pode ser instalada
+let eventoInstalacao;
+
+window.addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+
+    eventoInstalacao = event;
+
+    installbutton.addEventListener("click", () => {
+        eventoInstalacao.prompt();
+    })
 });
