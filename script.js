@@ -63,6 +63,8 @@ function adicionar (event) {
         console.log(entradas);
 
         lista.removeChild(elementoLista);
+
+        localStorage.setItem("entradas", JSON.stringify(entradas));
     });
 
     formulario.reset();
@@ -106,7 +108,6 @@ window.addEventListener("load", () => {
             localStorage.setItem("entradas", JSON.stringify(entradasSalvas));
 
             lista.removeChild(elementoLista);
-
         });
 
         lista.append(elementoLista);
