@@ -35,12 +35,11 @@ form div {
     justify-content: space-between;
     width: 60%;
     margin: 10px auto;
-    gap: 10px
+    gap: 10px;
 }
 
 .data input {
     width: 30%;
-    width: auto;
 }
 
 .data label {
@@ -139,10 +138,16 @@ li button:hover {
 @media (max-width: 600px) {
     main {
         margin: 20px auto 0;
+        padding: 20px;
     }
     .data {
         width: 100%;
     }
+    input,
+    textarea {
+        width: 100%;
+    }
+
     li {
         flex-direction:column;
     }
