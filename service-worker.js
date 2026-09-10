@@ -1,9 +1,9 @@
-const CACHE_NAME = 'diario-de-bordo-v1';
+const CACHE_NAME = 'diario-de-bordo-v2';
 
 const ARQUIVOS_CACHE = [
     '/',
     '/index.html',
-    '/styles.css',
+    '/style.css',
     '/script.js',
     '/manifest.json',
     '/icons/icon-192.png',

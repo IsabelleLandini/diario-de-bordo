@@ -3,7 +3,7 @@ const lista = document.querySelector("ul");
 const formulario = document.querySelector("form")
 
 // Armazena as entradas adicionadas pelo usuário
-const entradas = [];
+const entradas = JSON.parse(localStorage.getItem("entradas") || "[]");
 
 console.log(lista);
 console.log(formulario);
@@ -75,13 +75,7 @@ formulario.addEventListener("submit", adicionar);
 // Recupera as entradas salvas no localStorage ao carregar a página
 window.addEventListener("load", () => {
     
-    const entradasSalvas = JSON.parse(
-        localStorage.getItem("entradas") || "[]"
-    );
-
-    entradas.push(...entradasSalvas);
-    
-    entradasSalvas.forEach((entrada) => {
+    entradas.forEach((entrada) => {
         const botaoRemover = document.createElement("button");
         botaoRemover.textContent = "Remover";
 
@@ -102,10 +96,10 @@ window.addEventListener("load", () => {
         elementoLista.append(botaoRemover);
 
         botaoRemover.addEventListener("click", () => {
-            const indice = entradasSalvas.indexOf(entrada);
-            entradasSalvas.splice(indice, 1);
+            const indice = entradas.indexOf(entrada);
+            entradas.splice(indice, 1);
 
-            localStorage.setItem("entradas", JSON.stringify(entradasSalvas));
+            localStorage.setItem("entradas", JSON.stringify(entradas));
 
             lista.removeChild(elementoLista);
         });
