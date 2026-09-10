@@ -18,6 +18,7 @@ main {
     padding: 32px;
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+    box-sizing: border-box;
 }
 
 form {
@@ -118,7 +119,7 @@ li button:hover {
 }
 
 #installbutton {
-    display: block;
+    display: inline-block;
     margin: 0 0 20px auto;
     padding: 10px 20px;
     background: #6258b5;
@@ -136,7 +137,13 @@ li button:hover {
 }
 
 @media (max-width: 600px) {
+    main {
+        margin: 20px auto 0;
+    }
     .data {
         width: 100%;
+    }
+    li {
+        flex-direction:column;
     }
 }
